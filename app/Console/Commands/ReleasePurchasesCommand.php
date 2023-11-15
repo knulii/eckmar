@@ -53,7 +53,7 @@ class ReleasePurchasesCommand extends Command
                     $purchase->release();
                     $this->info("Purchase #$purchase->id is successfully released!");
                 }
-                catch (RequestException $exception){
+                catch (RequestThrowable $exception){
                     $this->warn("Error with purchase #$purchase->id, " . $exception ->getMessage() . " For more info please check the logs!");
                 }
             }

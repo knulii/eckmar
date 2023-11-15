@@ -43,7 +43,7 @@ class Procedure
                     $purchase->complete();
                     $command->info("This purchase is completed!");
                 }
-                catch (RequestException $exception){
+                catch (RequestThrowable $exception){
                     $purchase->status_notification  = $exception->getMessage();
                     $purchase->save();
                     $command->error("We are unable to complete this purchase, please check the log for details!");

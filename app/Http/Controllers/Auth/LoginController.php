@@ -62,7 +62,7 @@ class LoginController extends Controller {
         try{
             return $request -> persist();
         }
-        catch (RequestException $exception){
+        catch (RequestThrowable $exception){
             session() -> flash('errormessage', $exception -> getMessage());
             return redirect() -> back();
         }
