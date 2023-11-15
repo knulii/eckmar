@@ -35,7 +35,7 @@
                     <a href="{{ route('profile.vendor.product.images.default', $image -> id) }}" class="btn btn-sm btn-primary">Default</a>
                     <a href="{{ route('profile.vendor.product.images.remove', $image -> id) }}" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></a>
                 @else
-                    <p class="bg-white text-muted">Default picture</p>
+                    <p>Default picture</p>
                 @endif
             </div>
         </div>

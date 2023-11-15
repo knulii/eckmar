@@ -104,7 +104,7 @@
     @if(!request() -> is('profile/vendor/product/edit/*'))
         <form method="POST" action="{{ route("profile.vendor.product.post") }}" class="text-center my-2">
             {{ csrf_field() }}
-            <button class="btn btn-lg btn-block btn-success"><i class="far fa-plus-square mr-2"></i> Add product</button>
+            <button class="btn btn-lg btn-block btn-dark"><i class="far fa-plus-square mr-2"></i> Add product</button>
         </form>
     @endif
 

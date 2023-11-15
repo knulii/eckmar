@@ -32,7 +32,7 @@
                 @enderror
             </div>
             <div class="col-md-3">
-                <button class="btn btn-outline-success" type="submit">Change password</button>
+                <button class="btn btn-outline-danger" type="submit">Change password</button>
             </div>
         </div>
     </form>
@@ -71,7 +71,7 @@
                 {{ csrf_field() }}
                 <div class="form-row">
                     <div class="col-md-6">
-                        <input type="text" class="form-control form-control-lg d-flex" name="address" id="address" placeholder="Place your new address(pubkey) here">
+                        <input type="text" class="form-control form-control-lg d-flex" name="address" id="address" placeholder="Place your new xmr address here">
                     </div>
                     <div class="col-md-2">
                         <select name="coin" id="coin" class="form-control form-control-lg d-flex">
@@ -82,7 +82,7 @@
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <button class="btn btn-block btn-success btn-lg">Change</button>
+                        <button class="btn btn-block btn-primary btn-lg">Change</button>
                     </div>
                 </div>
             </form>

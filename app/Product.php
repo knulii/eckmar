@@ -92,17 +92,12 @@ class Product extends Model
         return $this -> digital && $this -> digital -> autodelivery;
     }
 
-    public function isUnlimited()
-    {
-        return $this -> digital && $this -> digital -> unlimited;
-    }
-
     /**
      * Updates the quantity for autodelivery products
      */
     public function updateQuantity()
     {
-        if ($this -> isAutodelivery()){
+        if($this -> isAutodelivery()){
             $this -> quantity = $this -> digital -> newQuantity();
         }
     }
@@ -256,6 +251,16 @@ class Product extends Model
         }
 
         return $numberOfOrders;
+    }
+
+    public function numberOfPurchases()
+    {
+        $numberOfPurchases = 0;
+        foreach ($this->offers()->get() as $offer) {
+            $numberOfPurchases += $offer->purchases()->sum('quantity');
+        }
+
+        return $numberOfPurchases;
     }
 
     /**

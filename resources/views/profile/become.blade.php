@@ -33,7 +33,7 @@
                 </td>
                 <td class="text-right">
                     @if($depositAddress -> isEnough())
-                        <span class="badge badge-success">Enough funds</span>
+                        <span class="badge badge-primary">Enough funds</span>
                     @endif
                     <span class="badge badge-info">{{ $depositAddress -> balance }}</span>
                 </td>
@@ -44,7 +44,7 @@
     </table>
 
     <form action="{{ route('profile.vendor.become') }}" class="form-inline">
-        <button type="submit" class="btn btn-lg btn-success">
+        <button type="submit" class="btn btn-lg btn-primary">
             <i class="fas fa-file-signature mr-2"></i>
             Become a Vendor
         </button>

@@ -11,7 +11,6 @@
 |
 */
 
-
 Route::name('auth.')->group(function () {
     include 'auth.php';
 });
@@ -52,4 +51,5 @@ Route::get('vendor/{user}/feedback', 'IndexController@vendorsFeedbacks') -> name
 
 Route::post('search','SearchController@search')->name('search');
 Route::get('search','SearchController@searchShow')->name('search.show');
+
 

@@ -16,7 +16,7 @@ class Captcha
 
         $width = 200;
         $height = 50;
-        $char_number = 6;
+        $char_number = 4;
         $builder =  new CaptchaBuilder($char_number);
         $builder->build($width,$height);
         session()->put('captcha',$builder->getPhrase());

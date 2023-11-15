@@ -11,11 +11,12 @@ return [
      * 'stb' => Stub coin
      */
     'coin_list' => [
-        'btc' => \App\Marketplace\Payment\BitcoinPayment::class,
-//       'btcm' => \App\Marketplace\Payment\BitcoinMutlisig::class, // bitcoin multisig
+//        'btc' => \App\Marketplace\Payment\BitcoinPayment::class,
+//        'btcm' => \App\Marketplace\Payment\BitcoinMutlisig::class, // bitcoin multisig
         'xmr' => \App\Marketplace\Payment\MoneroPayment::class,
-        'stb' => \App\Marketplace\Payment\StubCoin::class,
-//        'pivx' => \App\Marketplace\Payment\PivxCoin::class,
+//        'stb' => \App\Marketplace\Payment\StubCoin::class,
+//        'yerb' => \App\Marketplace\Payment\YerbPayment::class,
+//        'rtm' => \App\Marketplace\Payment\RtmPayment::class,
 //        'ltc' => \App\Marketplace\Payment\LitecoinPayment::class,
 //        'dash' => \App\Marketplace\Payment\DashPayment::class,
 //        'bch' => \App\Marketplace\Payment\BitcoinCashPayment::class,
@@ -28,10 +29,10 @@ return [
      * Uses data from .env file
      */
     'bitcoin' => [
-        'host' => env('BITCOIND_HOST', 'localhost'),
-        'username' => env('BITCOIND_USERNAME', 'myuser'),
-        'password' => env('BITCOIND_PASSWORD', 'mypassword'),
-        'port' => env('BITCOIND_PORT', 18332),
+        'host' => env('BITCOIND_HOST', '127.0.0.1'),
+        'username' => env('BITCOIND_USERNAME', 'username'),
+        'password' => env('BITCOIND_PASSWORD', 'password'),
+        'port' => env('BITCOIND_PORT', 8332),
         'minconfirmations' => env('BITCOIND_MINCONFIRMATIONS', 1),
     ],
 
@@ -44,21 +45,26 @@ return [
 
     'monero' => [
         'host' => env('MONERO_HOST','127.0.0.1'),
-        'port' => intval(env('MONERO_PORT',28091)),
-        'username' => env('MONERO_USERNAME','testwallet'),
-        'password' => env('MONERO_PASSWORD','testwallet')
-
-
+        'port' => intval(env('MONERO_PORT',18083)),
+        'username' => env('MONERO_USERNAME','username'),
+        'password' => env('MONERO_PASSWORD','password')
     ],
 
     /**
-     * PIVX settings
+     * YERB settings
      */
-    'pivx' => [
-        'host' => env('PIVX_HOST','127.0.0.1'),
-        'port' => intval(env('PIVX_PORT',51475)),
-        'username' => env('PIVX_USERNAME','username'),
-        'password' => env('PIVX_PASSWORD','password')
+    'yerb' => [
+        'host' => env('YERB_HOST','127.0.0.1'),
+        'port' => intval(env('YERB_PORT',9001)),
+        'username' => env('YERB_USERNAME','username'),
+        'password' => env('YERB_PASSWORD','password')
+    ],
+
+    'rtm' => [
+        'host' => env('RTM_HOST','127.0.0.1'),
+        'port' => intval(env('RTM_PORT',8001)),
+        'username' => env('RTM_USERNAME','username'),
+        'password' => env('RTM_PASSWORD','password')
     ],
 
     /**
@@ -114,19 +120,20 @@ return [
      */
     'market_addresses' => [
         'btc' => [ // list of btc addresses
-            '02a017c9869f8378303f02310b9b719e6cb6bea37f87f95d89e187546d09b22b1c'
+            'bc1q7qfnyy7j6hrfeaq3hqr73dhurgcf4w0myw8gl4'
         ],
-        'pivx' => [ // list of pivx addresses
-            'xyQ7EsNzUUBMwyihUwgQ76E2Ac7FevEcQ4'
+        'yerb' => [ // list of yerb addresses
+            'yPR68L63KNLSqJ1JksrZ2hTKjkqPuwrZ1T'
         ],
-        'dash' => [
-            'yQgr9ix7L7JuA5NeZdj3yux7sNXCX3H843'
+        'rtm' => [ // list of yerb addresses
+            'RHQ9vTrj3T4KgSYCWg4znQPQwxcj2LPAnV'
         ],
-        'stb' => [
-            'marketSTB',
-            'market2STB'
-        ]
+        'xmr' => [
+            '45ry3PiKunpfk1mmacicjohiSjp3TSPg5iVJAfmiYWGoBJH8T3U2MpG1sHfiYkVKo8MTZiiY22JKbG3YaKagujYBQPCHX5G'
+        ],
     ],
+
+
     'multisig' => [
         'balance_api' => 'https://testnet.blockchain.info/balance?active=',
         'unspent_api' => 'https://testnet.blockchain.info/unspent?active=',

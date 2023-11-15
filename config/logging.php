@@ -76,6 +76,7 @@ return [
             'driver' => 'errorlog',
             'level' => 'debug',
         ],
+        
     ],
 
 ];

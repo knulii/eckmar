@@ -55,11 +55,6 @@
     </a>
     @endhasAccess
 
-    <a class="nav-link @isroute('admin.bitmessage') active @endisroute" href="{{ route('admin.bitmessage') }}">
-        <i class="fas fa-envelope-open mr-2"></i>
-        Bitmessage
-    </a>
-
     @hasAccess('disputes')
     <a class="nav-link @isroute('admin.disputes') active @endisroute" href="{{ route('admin.disputes') }}">
         <i class="fas fa-exclamation-triangle mr-2"></i>

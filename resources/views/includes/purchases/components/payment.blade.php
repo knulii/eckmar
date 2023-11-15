@@ -109,7 +109,7 @@
     {{-- Purchased buyer--}}
     @if($purchase -> isPurchased() && $purchase -> isBuyer() && !$purchase -> enoughBalance())
         <div class="alert alert-warning text-center">
-            To proceed with purchase send the enough <em>Bitcoin</em> to the address: <span
+            To proceed with purchase send enough <em>funds</em> to the address: <span
                     class="badge badge-info">{{ $purchase -> address }}</span>
         </div>
     @endif
@@ -117,12 +117,11 @@
     {{-- Purchased vendor --}}
     @if($purchase -> isVendor() && $purchase -> isPurchased() && $purchase -> enoughBalance())
         <div class="alert alert-warning text-center">
-            The buyer has paid sufficient amount on the <em>Escrow</em> address. It's recommended to send the
-            goods now!
+            The buyer has paid sufficient amount on the <em>Escrow</em> address. You can send the goods now!
         </div>
     @elseif($purchase -> isVendor() && $purchase -> isPurchased())
         <div class="alert alert-warning text-center">
-            The buyer has not paid sufficient amount on the <em>Escrow</em> address. Don't send the goods now!
+            The buyer has not paid sufficient amount on the <em>Escrow</em> address. Don't send the goods yet!
         </div>
     @endif
 

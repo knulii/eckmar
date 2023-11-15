@@ -1,4 +1,4 @@
-<div class="nav flex-md-column flex-row nav-pills justify-content-sm-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+<div class="nav flex-md-row flex-row nav-pills justify-content-sm-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
     <a href="{{ route('profile.index') }}" class="nav-link @isroute('profile.index') active @endisroute" id="v-pills-home-tab" data-toggle="pill" role="tab" aria-controls="v-pills-home" aria-selected="true">
         <i class="fa fa-cog mr-2"></i>
         Settings
@@ -46,8 +46,4 @@
     Notifications
     </a>
 
-    <a href="{{ route('profile.bitmessage') }}" class="nav-link @isroute('profile.bitmessage') active @endisroute" data-toggle="pill">
-        <i class="mr-2 far fa-envelope-open"></i>
-        Bitmessage
-    </a>
 </div>

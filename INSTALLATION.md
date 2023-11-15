@@ -1,4 +1,5 @@
-You do not need to follow this tutorial. You can host **eckmar** on whatever server or system you want as long as your server meets the requiremnets.
+Some required software is constantly updated and changed so you should always look for up-to-date version of software online.
+You do not need to follow this tutorial. You can host **Peralta** on whatever server or system you want as long as your server meets the requiremnets.
 
 <details>
   <summary>If your VPS doesn't have 2GB of RAM</summary>
@@ -63,7 +64,8 @@ NAME      TYPE  SIZE   USED PRIO
 
 # Installation
 
-Most of this will be simple copy-paste commands that you enter in your VPS. I'm writing this tutorial based on Ubuntu 18.04. When you first login on your VPS run:
+This is not a copy-paste tutorial. Most of this will be simple copy-paste commands that you enter in your VPS. I'm writing this tutorial based on Ubuntu 18.04
+When you first login on your VPS run:
 ```
 sudo apt-get update
 ```
@@ -80,7 +82,7 @@ sudo ufw allow 'Nginx HTTP'
 After both steps are done, you should check whats your VPS IP address and enter that IP in a browser. You should see `welcome to nginx !` page. If you do see it, nginx is installed correctly.
 
 # MySQL
-Marketplace supports multiple databases like: MySQL,PostgreSQL, SQLite, SQL Server We will use MySQL.
+Marketplace supports multiple databases like: MySQL,PostgreSQL, SQLite, SQL Server. We will use MySQL.
 ```
 sudo apt-get install mysql-server
 ```
@@ -275,51 +277,51 @@ Now we need to copy the files to the server.
 cd /var/www/
 ```
 ```
-git clone https://github.com/eckmarcommunity/eckmar.git
+git clone https://github.com/nomiac-mobile/peralta.git
 ```
 # Permissions
 
 After files are copied we need to give them permissions.
 ```
-sudo chown -R www-data:www-data /var/www/eckmar/public
+sudo chown -R www-data:www-data /var/www/YM/public
 ```
 ```
 sudo chmod 755 /var/www
 ```
 ```
-sudo chmod -R 755 /var/www/eckmar/bootstrap/cache
+sudo chmod -R 755 /var/www/YM/bootstrap/cache
 ```
 ```
-sudo chmod -R 755 /var/www/eckmar/storage
+sudo chmod -R 755 /var/www/YM/storage
 ```
 ```
-sudo chown -R $USER:www-data /var/www/eckmar/storage
+sudo chown -R $USER:www-data /var/www/YM/storage
 ```
 ```
-sudo chown -R $USER:www-data /var/www/eckmar/bootstrap/cache
+sudo chown -R $USER:www-data /var/www/YM/bootstrap/cache
 ```
 ```
-sudo chmod -R 775 /var/www/eckmar/storage
+sudo chmod -R 775 /var/www/YM/storage
 ```
 ```
-sudo chmod -R 775 /var/www/eckmar/bootstrap/cache
+sudo chmod -R 775 /var/www/YM/bootstrap/cache
 ```
 
 Make this folder: (used for product pictures):
 ```
-sudo mkdir /var/www/eckmar/storage/public/
-sudo mkdir /var/www/eckmar/storage/public/products
+sudo mkdir /var/www/YM/storage/public/
+sudo mkdir /var/www/YM/storage/public/products
 ```
 
 And give it permissions
 ```
-sudo chmod -R 755 /var/www/eckmar/storage/public/products
+sudo chmod -R 755 /var/www/YM/storage/public/products
 ```
 ```
-sudo chgrp -R www-data /var/www/eckmar/storage/public/products
+sudo chgrp -R www-data /var/www/YM/storage/public/products
 ```
 ```
-sudo chmod -R ug+rwx /var/www/eckmar/storage/public/products
+sudo chmod -R ug+rwx /var/www/YM/storage/public/products
 ```
 (Above code are 3 commands)
 
@@ -336,7 +338,7 @@ server {
         listen [::]:80;
         listen 443;
         listen [::]:443;
-root /var/www/eckmar/public;
+root /var/www/YM/public;
 index index.php index.html index.htm index.nginx-debian.html;
 server_name domain.com;
 location / {
@@ -363,9 +365,9 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 
 # Installation
 
-After everything above is done, change current directory to the directory name you previously chose (I used **eckmar**) and run series of commands to install all required dependencies:
+After everything above is done, change current directory to the directory name you previously chose (I used **YM**) and run series of commands to install all required dependencies:
 ```
-cd /var/www/eckmar
+cd /var/www/YM
 ```
 ```
 composer install

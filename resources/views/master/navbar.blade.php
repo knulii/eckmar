@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg  navbar-dark bg-mgray">
+<nav class="navbar navbar-expand-lg navbar-dark bg-black">
     <div class="container">
         <a class="navbar-brand" href="{{ route("home") }}">{{ config('app.name') }}</a>
 
@@ -16,7 +16,7 @@
                 <ul class="navbar-nav mr-auto">
                     @admin
                     <li class="nav-item @isroute('admin') active @endisroute">
-                        <a class="nav-link" href="{{ route('admin.index') }}">Admin Panel</a>
+                        <a class="nav-link" href="{{ route('admin.index') }}">Admin panel</a>
                     </li>
                     @endadmin
                     @moderator
@@ -41,7 +41,7 @@
                             </a>
                         </li>
                         <li class="nav-item text-center @isroute('profile.cart') active @endisroute">
-                            <a class="nav-link w-100 text-black-50 {{ \App\Marketplace\Cart::getCart() ->numberOfItems() == 0 ? 'bg-secondary' : 'bg-warning' }}" href="{{ route('profile.cart') }}">
+                            <a class="nav-link w-100 text-black-50 {{ \App\Marketplace\Cart::getCart() ->numberOfItems() == 0 ? 'bg-light' : 'bg-warning' }}" href="{{ route('profile.cart') }}">
                                 <i class="fas fa-shopping-cart mr-2"></i>
                                 ({{ session('cart_items') !== null ? count(session('cart_items')) : 0 }})
                             </a>

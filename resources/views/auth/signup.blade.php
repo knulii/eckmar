@@ -50,7 +50,7 @@
                         </div>
 
                     </div>
-                    @include('includes.captcha')
+                  @include('includes.captcha')
                     @if($errors->has('captcha'))
                         <p class="text-danger">{{$errors->first('captcha')}}</p>
                     @endif

@@ -51,18 +51,7 @@ trait Purchasable {
         event(new NewPurchase($this));
 
         // if it is autodelivery mark as sent and run sent procedure
-        if($this -> offer -> product -> isAutodelivery()){
-            // Mark as sent and run sent procedure
-            $this -> getPayment() -> sent();
-            $this -> state = 'sent';
-            $this -> save();
 
-            // pull products to the delivered product section
-            $productsToDelivery = $this -> offer -> product -> digital -> getProducts($this -> quantity);
-
-            $this -> delivered_product = implode("\n", $productsToDelivery);
-            $this -> save();
-        }
     }
 
     private function markingAsSent(){
@@ -74,6 +63,14 @@ trait Purchasable {
 
             $this -> state = 'sent';
             $this -> save();
+
+            if($this -> offer -> product -> isAutodelivery()){
+                // pull products to the delivered product section
+                $productsToDelivery = $this -> offer -> product -> digital -> getProducts($this -> quantity);
+
+                $this -> delivered_product = implode("\n", $productsToDelivery);
+                $this -> save();
+            }
 
             DB::commit();
             event(new ProductSent($this));

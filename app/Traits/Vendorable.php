@@ -65,7 +65,7 @@ trait Vendorable
 //                throw new RedirectException("You need to have '" . strtoupper($coinName) . "' address in your account to become vendor!", route('profile.index'));
 //        }
         // check if the user deposited addres
-        throw_unless($this -> depositedEngouh(), new RequestException("You must deposit enough funds to the one address!"));
+        throw_unless($this -> depositedEngouh(), new RequestException("You need to deposit enough funds to the XMR address!"));
 
         try{
             DB::beginTransaction();

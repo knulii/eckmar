@@ -2,7 +2,7 @@
 
 namespace App\Exceptions;
 
-use Exception;
+use Throwable;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Session\TokenMismatchException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
@@ -34,7 +34,7 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return void
      */
-    public function report(Exception $exception)
+    public function report(Throwable $exception)
     {
         parent::report($exception);
     }
@@ -46,7 +46,7 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception)
+    public function render($request, Throwable $exception)
     {
         if($exception instanceof AccessDeniedHttpException){
             return abort(404);
@@ -57,13 +57,13 @@ class Handler extends ExceptionHandler
             $exception -> flashError();
             return redirect()->back();
         }
-
-        if($exception instanceof TokenMismatchException)
-        {
-            session() -> flash('errormessage', 'Token missmatch');
-            return redirect() -> back();
+               
+        if ($exception instanceof TokenMismatchException){    
+            session()->flash('errormessage', 'Token missmatch');
+            return redirect()->back();
         }
 
         return parent::render($request, $exception);
     }
+
 }

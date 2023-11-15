@@ -7,6 +7,7 @@ use App\Exceptions\RequestException;
 use App\Http\Requests\Profile\DecryptMessagesRequest;
 use App\Http\Requests\Profile\NewConversationRequest;
 use App\Http\Requests\Profile\NewMessageRequest;
+use Illuminate\View\View;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;

@@ -1,6 +1,6 @@
 @extends('master.main')
 
-@section('title', 'Admin Panel')
+@section('title', 'Admin panel')
 
 @section('content')
 

@@ -69,7 +69,6 @@
                                 <strong class="badge badge-info">{{ ucfirst($product -> type) }}</strong>
                             </td>
                         </tr>
-                        @if(!$product -> isUnlimited())
                         <tr>
                             <td class="text-right text-muted">
                                 Offers
@@ -86,18 +85,6 @@
 
                             </td>
                         </tr>
-                        @else
-                        <tr>
-                            <td class="text-right text-muted">
-                                Price
-                            </td>
-                            <td>
-                                @foreach($product -> offers as $offer)
-                                    <strong>@include('includes.currency', ['usdValue' => $offer -> dollars])</strong>
-                                @endforeach
-                            </td>
-                        </tr>
-                        @endif
                         <tr>
                             <td class="text-right text-muted">
                                 Coins
@@ -109,19 +96,17 @@
                             </td>
                         </tr>
                         <tr>
-                            @if(!$product -> isUnlimited())
                             <td class="text-right text-muted">Left/Sold</td>
                             <td>
-                                <span class="badge badge-light">{{ $product -> quantity }} {{ str_plural($product -> mesure, $product -> quantity) }}</span>/
-                                <span class="badge badge-light">{{ $product -> orders }} {{ str_plural($product -> mesure, $product -> orders) }} </span>
+                                <span class="badge badge-dark">{{ $product -> quantity }} {{ str_plural($product -> mesure, $product -> quantity) }}</span>/
+                                <span class="badge badge-dark">{{ $product -> numberOfPurchases() }} {{ str_plural($product -> mesure, $product -> orders) }} </span>
                             </td>
-                            @endif
                         </tr>
                         <tr>
                             <td colspan="2">
                                 @if($product->user->vendor->experience < 0)
                                     <p class="text-danger border border-danger rounded p-1 mt-2"><span
-                                                class="fas fa-exclamation-circle"></span> Negative experience, trade with caution!
+                                                class="fas fa-exclamation-circle"></span> Negative experience, trade with caution !
                                     </p>
                                 @endif
                             </td>
@@ -179,26 +164,16 @@
                         <tr class="bg-light">
 
                             <td class="text-right text-muted">
-                            @if(!$product -> isUnlimited())
                                 <label for="amount">Amount:</label>
-                            @endif
                             </td>
                             <td class="row">
-                                @if($product -> isUnlimited())
-                                <input style="display: none;" type="number" min="1" name="amount" id="amount"
-                                        value="1"
-                                        max="{{ $product -> quantity }}"
-                                        class="@if($errors -> has('amount')) is-invalid @endif form-control form-control-sm"
-                                        placeholder="Amount of {{ str_plural($product -> mesure) }}"/>
-                                @else
                                 <div class="col-md-5">
                                     <input type="number" min="1" name="amount" id="amount"
                                            value="1"
                                            max="{{ $product -> quantity }}"
                                            class="@if($errors -> has('amount')) is-invalid @endif form-control form-control-sm"
                                            placeholder="Amount of {{ str_plural($product -> mesure) }}"/>
-                                />
-                                @endif
+                                </div>
                                 <div class="col-md-7">
                                     <button class="btn btn-sm btn-block mb-2 btn-primary"><i class="fas fa-plus mr-2"></i>Add to
                                         cart
@@ -231,13 +206,13 @@
             </div>
         </div>
 
-        {{-- Shop with Confidence --}}
+        {{-- Shop with confidence --}}
         <div class="col-md-3">
             <div class="card mb-2">
                 <div class="card-body">
                     <h6>
                         <i class="fas fa-shield-alt"></i>
-                        Shop with Confidence
+                        Shop with confidence
                     </h6>
                     <div class="text-muted">
                         You are Escrow protected for each product in the market!
@@ -250,7 +225,7 @@
                 </div>
                 <div class="card-body">
                     <div class="btn-group">
-                        <a class="btn btn-light btn-sm" href="{{ route('vendor.show', $product -> user) }}">
+                        <a class="btn btn-dark btn-sm" href="{{ route('vendor.show', $product -> user) }}">
                             <span >{{ $product -> user -> username }}</span></a>
 
                         <span class="btn btn-primary active btn-sm">Level {{$product->user->vendor->getLevel()}}</span>
@@ -272,7 +247,7 @@
                         </div>
                     </div>
                     <hr>
-                        <a href="{{ route('profile.messages').'?otherParty='.$product -> user ->username}}" class="btn mb-1 btn-outline-secondary"><span class="fas fa-envelope"></span> Send message</a>
+                        <a href="{{route('profile.messages').'?otherParty='.$product -> user ->username}}" class="btn mb-1 btn-outline-secondary"><span class="fas fa-envelope"></span> Send message</a>
                         <a href="{{route('search',['user'=>$product->user->username])}}"  class="btn mb-1 btn-outline-info">Seller's products ({{$product -> user ->products()->count()}})</a>
 
                 </div>
@@ -286,6 +261,10 @@
         <li class="nav-item">
             <a class="nav-link @isroute('product.show') active @endisroute"
                href="{{ route('product.show', $product) }}#productsmenu">Details</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link @isroute('product.rules') active @endisroute"
+               href="{{ route('product.rules', $product) }}#productsmenu">Payment rules</a>
         </li>
         <li class="nav-item">
             <a class="nav-link @isroute('product.feedback') active @endisroute"

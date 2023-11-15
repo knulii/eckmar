@@ -20,13 +20,14 @@ return [
      */
     'product_types' => [
         // example:
-        // 'physical' => 'Physical'
+         'physical' => 'Physical',
+	 'digital' => 'Digital'
     ],
 
     /**
      * Market fee percent out of 100, must be from 0 to 95
      */
-    'market_fee_percent' => env('MARKET_FEE_PERCENT', 5),
+    'market_fee_percent' => env('MARKET_FEE_PERCENT', 3),
 
     /**
      * Amount of USD that needs to be paid to the market in order to become vendor
@@ -36,12 +37,12 @@ return [
     /**
      * After how many negative feedback should vendor get "Deal with caution tag"
      */
-    'vendor_dwc_tag_count' => 1,
+    'vendor_dwc_tag_count' => 50,
 
     /**
      * Amount in USD for feedback to be considered as Low Value (will get Low Value tag but it will be still counted towards total rating)
      */
-    'vendor_low_value_feedback' => 70,
+    'vendor_low_value_feedback' => 50,
 
     /**
      * Trusted vendor settings (both conditions must be met in order to be displayed as trusted)
@@ -70,37 +71,36 @@ return [
     /**
      * How many days from marking purchase as sent passed to the point of automaticly marking purchase as delivered and releasing the funds to the vendor
      */
-    'days_old_purchases' => intval(env("PURCHASES_DAYS_OLD", 60)),
+    'days_old_purchases' => intval(env("PURCHASES_DAYS_OLD", 7)),
 
     /**
      * Coins for seeder
      */
     'seeder_coins' => [
-        'stb'
+        'xmr'
     ],
     /**
      * Display warning for users to disable JavaScript if they have it enabled
      */
-    'js_warning' => boolval(env('MARKETPLACE_JSWARNING',false)),
+    'js_warning' => boolval(env('MARKETPLACE_JSWARNING',true)),
 
 
     /**
      * Mirrors of the marketpalce
      */
     'mirrors' => [
-        'http://marketplace.test/',
-        'http://marketplace.test/',
-        'http://marketplace.test/',
-        'http://marketplace.test/',
-        'http://marketplace.test/',
+	'bty2zuvop3mwolqqqq3hp6hfdwqyy5eqjm6snkgte7r2rp4b6zvv7nad.onion',
+	'euzlizufdlw6tvacl3hj5dfuaob3zh6g6e7dcf4wt2an5yvk4k5vdfyd.onion',
+    'bu5taih2lbos7l5vq5oyhg6rafxpohujskfdsav3fixzek22ohcvmgqd.onion'
     ],
+
     /**
      * For how long should front page queries be cached (in minutes)
      */
     'front_page_cache' => [
-        'top_vendors' => 0,
-        'latest_orders' => 0,
-        'rising_vendors' => 0,
+        'top_vendors' => 5,
+        'latest_orders' => 5,
+        'rising_vendors' => 5,
         'featured_products' => 5,
     ],
 
