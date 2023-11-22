@@ -117,7 +117,7 @@ return [
             '02a017c9869f8378303f02310b9b719e6cb6bea37f87f95d89e187546d09b22b1c'
         ],
         'yerb' => [ // list of pivx addresses
-            'xyQ7EsNzUUBMwyihUwgQ76E2Ac7FevEcQ4'
+            'yaDfcdCupB1T5YoVRjYr8fXCvB8U5AuNX8'
         ],
         'dash' => [
             'yQgr9ix7L7JuA5NeZdj3yux7sNXCX3H843'
