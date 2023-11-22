@@ -8,13 +8,13 @@ return [
      *
      * 'btc' => RPCWrapper
      * 'xmr' => Monero
-     * 'stb' => Stub coin
+     * 'yerb' => Yerbas
      */
     'coin_list' => [
-        'btc' => \App\Marketplace\Payment\BitcoinPayment::class,
+//        'btc' => \App\Marketplace\Payment\BitcoinPayment::class,
 //       'btcm' => \App\Marketplace\Payment\BitcoinMutlisig::class, // bitcoin multisig
-        'xmr' => \App\Marketplace\Payment\MoneroPayment::class,
-        'stb' => \App\Marketplace\Payment\StubCoin::class,
+//        'xmr' => \App\Marketplace\Payment\MoneroPayment::class,
+        'yerb' => \App\Marketplace\Payment\StubCoin::class,
 //        'pivx' => \App\Marketplace\Payment\PivxCoin::class,
 //        'ltc' => \App\Marketplace\Payment\LitecoinPayment::class,
 //        'dash' => \App\Marketplace\Payment\DashPayment::class,
@@ -52,13 +52,13 @@ return [
     ],
 
     /**
-     * PIVX settings
+     * YERB settings
      */
-    'pivx' => [
-        'host' => env('PIVX_HOST','127.0.0.1'),
-        'port' => intval(env('PIVX_PORT',51475)),
-        'username' => env('PIVX_USERNAME','username'),
-        'password' => env('PIVX_PASSWORD','password')
+    'yerb' => [
+        'host' => env('YERB_HOST','127.0.0.1'),
+        'port' => intval(env('YERB_PORT',15419)),
+        'username' => env('YERB_USERNAME','username'),
+        'password' => env('YERB_PASSWORD','password')
     ],
 
     /**
@@ -116,7 +116,7 @@ return [
         'btc' => [ // list of btc addresses
             '02a017c9869f8378303f02310b9b719e6cb6bea37f87f95d89e187546d09b22b1c'
         ],
-        'pivx' => [ // list of pivx addresses
+        'yerb' => [ // list of pivx addresses
             'xyQ7EsNzUUBMwyihUwgQ76E2Ac7FevEcQ4'
         ],
         'dash' => [
