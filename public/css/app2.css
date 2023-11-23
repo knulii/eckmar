@@ -4352,7 +4352,7 @@
    --cyan: #17a2b8;
    --white: #fff;
    --gray: #6c757d;
-   --gray-dark: #343a40;
+   --gray-dark: #000;
    --primary: #007bff;
    --secondary: #6c757d;
    --success: #28a745;
@@ -12293,7 +12293,7 @@
  }
  
  .bg-indigo {
-   background-color: #303f9f !important;
+   background-color: #000 !important;
  }
  
  a.bg-indigo:hover,
@@ -16787,4 +16787,6 @@
    padding: 0.4rem !important;
  }
  
- 
+ .bg-black {
+    background-color: #000 !important;
+}

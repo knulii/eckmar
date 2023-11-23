@@ -11,15 +11,13 @@ return [
      * 'yerb' => Yerbas
      */
     'coin_list' => [
-//        'btc' => \App\Marketplace\Payment\BitcoinPayment::class,
+//          'btc' => \App\Marketplace\Payment\BitcoinPayment::class,
 //       'btcm' => \App\Marketplace\Payment\BitcoinMutlisig::class, // bitcoin multisig
-//        'xmr' => \App\Marketplace\Payment\MoneroPayment::class,
-        'yerb' => \App\Marketplace\Payment\StubCoin::class,
-//        'pivx' => \App\Marketplace\Payment\PivxCoin::class,
-//        'ltc' => \App\Marketplace\Payment\LitecoinPayment::class,
+          'xmr' => \App\Marketplace\Payment\MoneroPayment::class,
+          'yerb' => \App\Marketplace\Payment\YerbPayment::class,
+//          'ltc' => \App\Marketplace\Payment\LitecoinPayment::class,
+          'rtm' => \App\Marketplace\Payment\RtmPayment::class,
 //        'dash' => \App\Marketplace\Payment\DashPayment::class,
-//        'bch' => \App\Marketplace\Payment\BitcoinCashPayment::class,
-//        'xvg' => \App\Marketplace\Payment\VergeCoin::class,
     ],
 
     /**
@@ -35,20 +33,17 @@ return [
         'minconfirmations' => env('BITCOIND_MINCONFIRMATIONS', 1),
     ],
 
-
     /**
      * Monero settings
      *
      * Uses data from .env file
      */
 
-    'monero' => [
+     'monero' => [
         'host' => env('MONERO_HOST','127.0.0.1'),
-        'port' => intval(env('MONERO_PORT',28091)),
-        'username' => env('MONERO_USERNAME','testwallet'),
-        'password' => env('MONERO_PASSWORD','testwallet')
-
-
+        'port' => intval(env('MONERO_PORT',18083)),
+        'username' => env('MONERO_USERNAME','username'),
+        'password' => env('MONERO_PASSWORD','password')
     ],
 
     /**
@@ -82,13 +77,13 @@ return [
     ],
 
     /**
-     * Bitcoin Cash settings
+     * Raptoreum settings
      */
-    'bictoin_cash' => [
-        'host' => env('BITCOIN_CASH_HOST','127.0.0.1'),
-        'port' => intval(env('BITCOIN_CASH_PORT',18332)),
-        'username' => env('BITCOIN_CASH_USERNAME','myuser'),
-        'password' => env('BITCOIN_CASH_PASSWORD','mypassword')
+    'rtm' => [
+        'host' => env('RTM_HOST','127.0.0.1'),
+        'port' => intval(env('RTM_PORT',8001)),
+        'username' => env('RTM_USERNAME','username'),
+        'password' => env('RTM_PASSWORD','password')
     ],
 
     /**
@@ -100,7 +95,6 @@ return [
         'username' => env('VERGE_USERNAME','myuser'),
         'password' => env('VERGE_PASSWORD','mypassword')
     ],
-
 
     /**
      * Refreshing cache for RPCWrapper price loading
@@ -122,10 +116,12 @@ return [
         'dash' => [
             'yQgr9ix7L7JuA5NeZdj3yux7sNXCX3H843'
         ],
-        'stb' => [
-            'marketSTB',
-            'market2STB'
-        ]
+        'rtm' => [
+            'yQgr9ix7L7JuA5NeZdj3yux7sNXCX3H843'
+        ],
+        'ltc' => [
+            'yQgr9ix7L7JuA5NeZdj3yux7sNXCX3H843'
+        ],
     ],
     'multisig' => [
         'balance_api' => 'https://testnet.blockchain.info/balance?active=',
